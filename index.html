@@ -1,1 +1,113 @@
-<h1> Hola mundo de Sistemas </h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .metadata {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        .metadata span {
+            display: flex;
+            align-items: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            transition: left 1s ease;
+        }
+
+        .carousel img.active {
+            left: 0;
+        }
+
+        .carousel img.prev {
+            left: -100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZz8Fybsh-jkr0WRFyHqTMpFqacM_t4-oLEsMXHtn6XIrr1HHCGLk8rVduw0JZQKFBh2cuXAhZv43_UduujJS17e_wV6pQjWw2rGuHnQLJqKCurWsCR6NQHh-SBcXsyE3YqLCb1ylisW7j-GzsgI-fG9acQHFQPKg6hjn9SQL9dHN9XixFb7u-EKheUrE/s320/slide-01.jpg" alt="Imagen 1" class="active">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDDHCdFrZ8a0jBNrg2OB1tEKDoOQhg-BlmCAb5_2H8Dq0ROv0d6f9HPO1vZmq9fK8jaJnNp3Am97KXsJAgBJr9K9zYwV_3kKg6pSI9REUJQfMHNNAq_pODnVjvmkJcvdHvDkqtanVcEDZAfg_E6JiIoJBHQpuXuGh7OXvUdCGOX3H8jVMT-nvuSuL1xFQ/s320/slide-03.jpg" alt="Imagen 2">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDDHCdFrZ8a0jBNrg2OB1tEKDoOQhg-BlmCAb5_2H8Dq0ROv0d6f9HPO1vZmq9fK8jaJnNp3Am97KXsJAgBJr9K9zYwV_3kKg6pSI9REUJQfMHNNAq_pODnVjvmkJcvdHvDkqtanVcEDZAfg_E6JiIoJBHQpuXuGh7OXvUdCGOX3H8jVMT-nvuSuL1xFQ/s320/slide-03.jpg" alt="Imagen 3">
+        </div>
+        <h1>El Salvador es referente de seguridad en la región</h1>
+        <div class="metadata">
+            <span>📅 18 junio, 2024</span>
+            <span>📰 Vicepresidencia</span>
+        </div>
+        <p>
+            El Vicepresidente Félix Ulloa hijo recibió a la Ministra de Seguridad de Argentina, Sra. Patricia Bullrich, en el marco de la visita que la funcionaria realizó a El Salvador para conocer a fondo las exitosas estrategias de seguridad implementadas por el “Modelo Bukele” y poder replicarlas en el país suramericano en su lucha contra el crimen organizado.
+        </p>
+        <p>
+            En ese sentido, el Ministro de Justicia y Seguridad Pública, Gustavo Villatoro compartió con su homóloga de Argentina todas las herramientas y acciones efectuadas en el Plan Control Territorial, además, la comitiva visitó el Centro de Confinamiento del Terrorismo (CECOT) y finalmente conocieron la Academia Nacional de Seguridad Pública.
+        </p>
+    </div>
+
+    <script>
+        let index = 0;
+
+        function showNextImage() {
+            const images = document.querySelectorAll('.carousel img');
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }
+
+        setInterval(showNextImage, 5000);
+    </script>
+</body>
+</html>
+
